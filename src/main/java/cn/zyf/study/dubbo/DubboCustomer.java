@@ -10,10 +10,14 @@ public class DubboCustomer {
 
 	private static final Log log = LogFactory.getLog(DubboCustomer.class);
 
-	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:spring/dubbo-customer.xml");
-		HelloWorld h = (HelloWorld) context.getBean("helloWorld");
-		h.say("zyf");
+	public static void main(String[] args) throws InterruptedException {
+		for (int i = 0; i < 10; i++) {
+			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+					"classpath:spring/dubbo-customer.xml");
+			HelloWorld h = (HelloWorld) context.getBean("helloWorld");
+			h.say(i + "zyf");
+			Thread.sleep(5 * 1000);
+		}
+
 	}
 }

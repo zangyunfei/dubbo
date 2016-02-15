@@ -19,6 +19,11 @@ public class SayService implements ISayService {
 	 * @return
 	 */
 	public void say(String name) {
+		try {
+			Thread.sleep(1 * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		System.out.println(name + "say helloWorld!");
 	}
 

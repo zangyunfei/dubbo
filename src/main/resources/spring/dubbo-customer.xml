@@ -35,8 +35,8 @@
 	<!-- 注册中心地址 -->
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
 
-	<!-- 用户服务接口 -->
+	<!-- 用户服务接口  timeout接口超时后 client报错   retries 消费者重试次数 1为失败重试1次-->
 	<dubbo:reference interface="cn.zyf.study.dubbo.interfaces.ISayService"
-		id="ISayService" check="false" />
+		id="ISayService" check="false" timeout="5000" retries="0" />
 
 </beans>  
